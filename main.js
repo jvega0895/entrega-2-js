@@ -34,19 +34,18 @@ const pizzas = [
   id: 6,
   ingredientes: ["Sus ingredientes son:", "Muzzarella","Cebolla","Jamon","Morron","Panceta","Palmito","Anchoas", "Aceitunas"],
   precio: 2000
-}
-
- ]
- const pizzasContainer = document.getElementById("pizzas-container")
+}]
+const pizzasContainer = document.getElementById("pizzas-container")
  const inputNumber = document.getElementById("idPizza")
  
  const error = (input, mensaje) => {
- const inputError = input.value
+ const inputError = input.parentElement;
  const errorMensaje = inputError.querySelector("small")
  errorMensaje.textContent = mensaje;
  }
  
- const getPizzaHtml = (pizzas) => {
+ const getPizzaHtml = (e) => {
+  e.preventDefault()
   if (inputNumber.value === pizzas.id) {
     return `<h2>${pizzas.nombre}</h2>
             <h3>${pizzas.precio}</h3>`
@@ -59,8 +58,7 @@ const pizzas = [
 
  pizzasContainer.innerHTML = pizzasHtml
 
- pizzasContainer.addEventListener("submit", (e)=>{
-  e.preventDefault();
- })
+ pizzasContainer.addEventListener("submit", getPizzaHtml)
 
- 
+
+ //Hola Profe llo intente pero no me sale disculpen gracias
